@@ -40,70 +40,84 @@ xhr.addEventListener("readystatechange", function () {
 		document.getElementById('longName').innerHTML = 'Name: ' + name;
 		console.log(name);
 
-		let currentPrice = parseData.financialData.currentPrice.fmt;
-		document.getElementById('currentPrice').innerHTML = 'Current Price: $' + currentPrice;
-		console.log(currentPrice);
-		
-		let open = parseData.summaryDetail.open.fmt;
-		document.getElementById('open').innerHTML = 'Market Open: $' + open;
-		console.log(open);
+		if (parseData.price.quoteType === 'EQUITY') {
 
-		let dayChange = Math.round((currentPrice - open)/open * 100)/100;
-		if (dayChange > 0) {
-			document.getElementById('dayChange').style.color = 'green';
+
+			let currentPrice = parseData.financialData.currentPrice.fmt;
+			document.getElementById('currentPrice').innerHTML = 'Current Price: $' + currentPrice;
+			console.log('Current Price ' + currentPrice);
+			
+			let open = parseData.summaryDetail.open.fmt;
+			document.getElementById('open').innerHTML = 'Market Open: $' + open;
+			console.log(open);
+
+			let previousClose = parseData.summaryDetail.previousClose.fmt;
+			console.log('Previous Close ' + previousClose);
+
+			let dayChange = Math.round(((currentPrice - previousClose)/previousClose) * 100000)/1000;
+			if (dayChange > 0) {
+				document.getElementById('dayChange').style.color = 'green';
+			} else {
+				document.getElementById('dayChange').style.color = 'red';
+			}
+			document.getElementById('dayChange').innerHTML = 'Day Change: ' + dayChange + '%';
+			console.log(dayChange);
+
+			let dayLow = parseData.summaryDetail.dayLow.fmt;
+			document.getElementById('dayLow').innerHTML = 'Day Low: $' + dayLow;
+			console.log(dayLow);
+
+			let dayHigh = parseData.summaryDetail.dayHigh.fmt;
+			document.getElementById('dayHigh').innerHTML = 'Day High: $' + dayHigh;
+			console.log(dayHigh);
+
+			let fiftyDayAverage = parseData.summaryDetail.fiftyDayAverage.fmt;
+			document.getElementById('fiftyDayAverage').innerHTML = 'Fifty Day Average: $' + fiftyDayAverage;
+			console.log(fiftyDayAverage);
+
+			let forwardPE = parseData.summaryDetail.forwardPE.fmt;
+			document.getElementById('forwardPE').innerHTML = 'Forward P/E: ' + forwardPE;
+			console.log(forwardPE);
+
+			let marketCap = parseData.price.marketCap.fmt;
+			document.getElementById('marketCap').innerHTML = 'Market Cap: ' + marketCap;
+			console.log(marketCap);
+
+			let dividendYield = parseData.summaryDetail.dividendYield.fmt;
+			document.getElementById('dividendYield').innerHTML = 'Dividend Yield: ' + dividendYield;
+			console.log(dividendYield);
+
+			let freeCashflow = parseData.financialData.freeCashflow.fmt;
+			document.getElementById('freeCashflow').innerHTML = 'Free Cashflow: $' + freeCashflow;
+			console.log(freeCashflow);
+
+			let operatingCashflow = parseData.financialData.operatingCashflow.fmt;
+			document.getElementById('operatingCashflow').innerHTML = 'Operating Cashflow: $' + operatingCashflow;
+			console.log(operatingCashflow);
+
+			let returnOnAssets = parseData.financialData.returnOnAssets.fmt;
+			document.getElementById('returnOnAssets').innerHTML = 'Return on Assets: ' + returnOnAssets;
+			console.log(returnOnAssets);
+
+			let returnOnEquity = parseData.financialData.returnOnEquity.fmt;
+			document.getElementById('returnOnEquity').innerHTML = 'Return on Equity: ' + returnOnEquity;
+			console.log(returnOnEquity);
+
+			let earningsGrowth = parseData.financialData.earningsGrowth.fmt;
+			document.getElementById('earningsGrowth').innerHTML = 'Earnings Growth: ' + earningsGrowth;
+			console.log(earningsGrowth);
+
+			let pegRatio = parseData.defaultKeyStatistics.pegRatio.fmt;
+			document.getElementById('pegRatio').innerHTML = 'Price/Earnings to Growth Ratio: ' + pegRatio;
+			console.log(pegRatio);
+
+			let recommendationKey = parseData.financialData.recommendationKey;
+			document.getElementById('recommendationKey').innerHTML = 'Yahoo Finance Recommendation: ' + recommendationKey;
+			console.log(recommendationKey);
 		} else {
-			document.getElementById('dayChange').style.color = 'red';
-		}
-		document.getElementById('dayChange').innerHTML = 'Day Change: ' + dayChange + '%';
-		console.log(dayChange);
-
-		let dayLow = parseData.summaryDetail.dayLow.fmt;
-		document.getElementById('dayLow').innerHTML = 'Day Low: $' + dayLow;
-		console.log(dayLow);
-
-		let dayHigh = parseData.summaryDetail.dayHigh.fmt;
-		document.getElementById('dayHigh').innerHTML = 'Day High: $' + dayHigh;
-		console.log(dayHigh);
-
-		let fiftyDayAverage = parseData.summaryDetail.fiftyDayAverage.fmt;
-		document.getElementById('fiftyDayAverage').innerHTML = 'Fifty Day Average: $' + fiftyDayAverage;
-		console.log(fiftyDayAverage);
-
-		let forwardPE = parseData.summaryDetail.forwardPE.fmt;
-		document.getElementById('forwardPE').innerHTML = 'Forward P/E: ' + forwardPE;
-		console.log(forwardPE);
-
-		let dividendYield = parseData.summaryDetail.dividendYield.fmt;
-		document.getElementById('dividendYield').innerHTML = 'Dividend Yield: ' + dividendYield;
-		console.log(dividendYield);
-
-		let freeCashflow = parseData.financialData.freeCashflow.fmt;
-		document.getElementById('freeCashflow').innerHTML = 'Free Cashflow: $' + freeCashflow;
-		console.log(freeCashflow);
-
-		let operatingCashflow = parseData.financialData.operatingCashflow.fmt;
-		document.getElementById('operatingCashflow').innerHTML = 'Operating Cashflow: $' + operatingCashflow;
-		console.log(operatingCashflow);
-
-		let returnOnAssets = parseData.financialData.returnOnAssets.fmt;
-		document.getElementById('returnOnAssets').innerHTML = 'Return on Assets: ' + returnOnAssets;
-		console.log(returnOnAssets);
-
-		let returnOnEquity = parseData.financialData.returnOnEquity.fmt;
-		document.getElementById('returnOnEquity').innerHTML = 'Return on Equity: ' + returnOnEquity;
-		console.log(returnOnEquity);
-
-		let earningsGrowth = parseData.financialData.earningsGrowth.fmt;
-		document.getElementById('earningsGrowth').innerHTML = 'Earnings Growth: ' + earningsGrowth;
-		console.log(earningsGrowth);
-
-		let pegRatio = parseData.defaultKeyStatistics.pegRatio.fmt;
-		document.getElementById('pegRatio').innerHTML = 'Price/Earnings to Growth Ratio: ' + pegRatio;
-		console.log(pegRatio);
-
-		let recommendationKey = parseData.financialData.recommendationKey;
-		document.getElementById('recommendationKey').innerHTML = 'Recommendation: ' + recommendationKey;
-		console.log(recommendationKey);
+			document.getElementById('details').style.display = 'none';
+			document.getElementById('statistics').innerHTML = 'This tool is only used for individual stocks.  Please enter a stock ticker symbol.'
+		};
 
 		console.log(parseData);
 	}
@@ -119,6 +133,7 @@ xhr.send(data);
 
 
 document.getElementById('submit').addEventListener('click', function () {
+
 	let input = document.getElementById('symbol').value;
 	console.log(input);
 

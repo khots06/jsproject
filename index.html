@@ -9,19 +9,25 @@
         <h1>Stock Snapshot</h1>
 
         <div id = "countdown">
-            
+
 
         </div>
 
         <label for="symbol">Symbol Name:</label>
-        <input type="text" id="symbol">
-        <button id="submit">Submit</button>
 
+            <input type="text" id="symbol" placeholder="(e.g., AAPL, AMZN)">
+            <button id="submit" type="submit">Submit</button>
+
+
+        <div id="basicInfo">
+            <ul>
+                <li id="ticker"></li>
+                <li id="longName"></li> 
+            </ul>
+        </div>
+        
         <div id="details" class="column">
             <ul>
-                <label></label>
-                <li id="ticker"></li>
-                <li id="longName"></li>
                 <li id="currentPrice"></li>
                 <li id="open"></li>
                 <li id="dayChange"></li>
@@ -29,6 +35,7 @@
                 <li id="dayHigh"></li>
                 <li id="fiftyDayAverage"></li>
                 <li id="forwardPE"></li>
+                <li id="marketCap"></li>
             </ul>
         </div>
         <div id="statistics" class="column">
@@ -44,10 +51,23 @@
             </ul>
         </div>
 
+        <div>
+            <h2>Watch List</h2>
+            <form id="watch">
+                <input type="text" name="name" placeholder="(e.g., AAPL, AMZN)" id="addList">
+                <button type="submit" name="submit" value="submit">Add to Watch List</button>
+            </form>
+
+            <div class="mainList">
+                <ul id="stockList"></ul>
+            </div>
+        </div>
+
 
 
     <script src="yahoofinanceapi.js"></script>
     <script src="countdown.js"></script>
+    <script src="watchlist.js"></script>
     </body>
 
     <footer>

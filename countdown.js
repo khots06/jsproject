@@ -1,5 +1,3 @@
-
-
 let countdownTimer = function () {
 
     var d = new Date();
@@ -20,12 +18,14 @@ let countdownTimer = function () {
 
 
     if (hours > 9 && hours < 16 && n !== 'Saturday' && n!== 'Sunday') {
-        let marketCloseHours = (16 - hours);
-        marketCloseMinutes = (60 - minutes);
-        marketCloseSeconds = (60 - seconds);
+        marketCloseHours = (15 - hours);
+        marketCloseMinutes = (59 - minutes);
+        marketCloseSeconds = (59 - seconds);
 
         let countdown = document.getElementById('countdown').innerHTML = 
-            'Time to market close: ' + marketCloseHours + ':' + marketCloseMinutes + ':' + marketCloseSeconds;
+            'Time to Market close: ' + ('0' + marketCloseHours).slice(-2) + ':' + ('0' + marketCloseMinutes).slice(-2) + ':' + ('0' + marketCloseSeconds).slice(-2);
+    } else {
+        document.getElementById('countdown').innerHTML = 'The Market is currently closed.'
     };
 }
 
