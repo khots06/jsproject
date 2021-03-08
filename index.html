@@ -17,6 +17,7 @@
 
             <input type="text" id="symbol" placeholder="(e.g., AAPL, AMZN)">
             <button id="submit" type="submit">Submit</button>
+            <p id="regexError">Error: Please enter a valid symbol</p>
 
 
         <div id="basicInfo">
@@ -51,6 +52,10 @@
             </ul>
         </div>
 
+        <div id="other">
+
+        </div>
+
         <div>
             <h2>Watch List</h2>
             <form id="watch">
@@ -64,10 +69,11 @@
         </div>
 
 
-
+    <script src="jquery.js"></script>
     <script src="yahoofinanceapi.js"></script>
     <script src="countdown.js"></script>
     <script src="watchlist.js"></script>
+
     </body>
 
     <footer>
