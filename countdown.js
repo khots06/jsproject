@@ -17,16 +17,27 @@ let countdownTimer = function () {
     var seconds = d.getSeconds();
 
 
-    if (hours > 9 && hours < 16 && n !== 'Saturday' && n!== 'Sunday') {
+    if (hours >= 10 && hours < 16 && n !== 'Saturday' && n!== 'Sunday') {
         marketCloseHours = (15 - hours);
         marketCloseMinutes = (59 - minutes);
         marketCloseSeconds = (59 - seconds);
 
         let countdown = document.getElementById('countdown').innerHTML = 
             'Time to Market close: ' + ('0' + marketCloseHours).slice(-2) + ':' + ('0' + marketCloseMinutes).slice(-2) + ':' + ('0' + marketCloseSeconds).slice(-2);
+            console.log(countdown);
     } else {
         document.getElementById('countdown').innerHTML = 'The Market is currently closed.'
     };
+
+    if (hours === 9 && minutes >= 30 && n !== 'Saturday' && n !== 'Sunday') {
+        marketCloseHours = (15 - hours);
+        marketCloseMinutes = (59 - minutes);
+        marketCloseSeconds = (59 - seconds);
+
+        let countdown = document.getElementById('countdown').innerHTML = 
+            'Time to Market close: ' + ('0' + marketCloseHours).slice(-2) + ':' + ('0' + marketCloseMinutes).slice(-2) + ':' + ('0' + marketCloseSeconds).slice(-2);
+    };
+   
 }
 
 setInterval(countdownTimer, 1000);

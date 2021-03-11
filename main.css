@@ -1,3 +1,106 @@
-#regexError{
+body {
+    /* content: ""; */
+    max-height: 100%;
+    background-image: url(images/longcomputer2.jpg), url(images/blkman4.jpg);
+    background-size: 30%, 30%;
+    background-repeat: no-repeat;
+    background-position: right, left;
+    background-position-y: center;
+    background-attachment: fixed;
+    background-color: rgba(255,255,255,0.25);
+    /* background: linear-gradient(0deg, transparent 90%, white), (0deg, transparent 90%, white); */
+    /* box-shadow: inset 50px 50px 50px 0 rgba(255, 255, 255, 0.7); */
+    /* position: absolute; */
+}
+
+
+#top-container {
+    margin-left: 30%;
+}
+
+h1 {
+    margin-top: 0;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: green;
+    text-align: center;
+    color: white;
+}
+
+body {
+    padding-top: 75px; 
+    background-color: #eff2f4;
+}
+
+.column {
+    border-style: dashed;
+    border-color: goldenrod;
+    border-width: 1px;
+    margin-bottom: 10px;
+    background-color:#eff2f4;
+}
+
+
+#basicInfo, #details, #statistics, #other, #watchList {
+    text-align: center;
+    min-width: 30%;
+    max-width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+#basicInfo, #currentPrice, #dayChange {
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+.lineItem:hover {
+    background-color: gold;
+}
+
+#regexError, #watchListError {
     display: none;
+}
+
+
+
+/******************* 
+MEDIA QUERIES
+******************/
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+
+}
+
+@media (min-width: 1025px) {
+    /* #container {
+        display: flex;
+        max-width: 40%;
+        justify-content: space-around;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .column {
+        flex: 1, 300PX;
+        display: flex;
+
+    }
+
+    #details {
+        margin-left: 70%;
+    }
+
+    #statistics {
+        margin-right: 70%;
+    } */
+
 }

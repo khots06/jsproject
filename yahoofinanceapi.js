@@ -51,6 +51,8 @@ xhr.addEventListener("readystatechange", function () {
 			document.getElementById('regexError').style.display = 'none';
 		}
 
+		regex.lastIndex = 0;
+
 		if (this.responseText === "") {
 			document.getElementById('other').innerHTML = 'There isnt a stock with that ticker symbol. Please try another symbol.';
 			document.getElementById('basicInfo').style.display = 'none';
@@ -192,6 +194,7 @@ document.getElementById('submit').addEventListener('click', function () {
 		document.getElementById('regexError').style.display = 'none';
 	}
 
+	regex.lastIndex = 0;
 
 	xhr.open("GET", "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics?symbol=" + input);
 	xhr.setRequestHeader("x-rapidapi-key", "ad2185fabemsh522f701ad4ebe0bp109193jsn8b214984504b");
@@ -215,6 +218,8 @@ document.getElementById('symbol').addEventListener('keyup', function(e) {
 		} else {
 			document.getElementById('regexError').style.display = 'none';
 		}
+
+		regex.lastIndex = 0;
 
 		xhr.open("GET", "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics?symbol=" + input);
 		xhr.setRequestHeader("x-rapidapi-key", "ad2185fabemsh522f701ad4ebe0bp109193jsn8b214984504b");
