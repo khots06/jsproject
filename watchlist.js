@@ -25,14 +25,14 @@ form.addEventListener('submit', (e) => {
         ul.appendChild(li);
     
         const button = document.createElement('button');
-        button.textContent = 'remove';
+        button.textContent = 'Remove';
         li.appendChild(button);
     }
 
 });
 
 ul.addEventListener('click', (e) => {
-    if (e.target.textContent === 'remove') {
+    if (e.target.textContent === 'Remove') {
       const li = e.target.parentNode;
       const ul = li.parentNode;
       ul.removeChild(li);

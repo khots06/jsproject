@@ -44,9 +44,6 @@ xhr.addEventListener("readystatechange", function () {
 				$('#regexError').delay(5000).fadeOut();
 			});
 			
-			// document.getElementById('regexError').innerHTML = 'Please enter a valid symbol';
-			// document.getElementById('regexError').style.color = 'red';
-			// document.getElementById('regexError').style.display = 'block';
 		} else {
 			document.getElementById('regexError').style.display = 'none';
 		}
