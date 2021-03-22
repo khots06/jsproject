@@ -38,17 +38,20 @@ xhr.addEventListener("readystatechange", function () {
 		const regex = /^[A-Z]{1,5}(?:\s*\d{6}[PC]\d{8})?$/;
 		console.log(regex.test(input));
 
-		if (regex.test(input) === false) {
-			
-			$('#regexError').fadeIn('slow', function() {
-				$('#regexError').delay(5000).fadeOut();
-			});
-			
-		} else {
-			document.getElementById('regexError').style.display = 'none';
-		}
+		if (input !== "") {
+			if (regex.test(input) === false) {
+				
+				$('#regexError').fadeIn('slow', function() {
+					$('#regexError').delay(5000).fadeOut();
+				});
+				
+			} else {
+				document.getElementById('regexError').style.display = 'none';
+			}
 
-		regex.lastIndex = 0;
+			regex.lastIndex = 0;
+
+		}
 
 		if (this.responseText === "") {
 			document.getElementById('other').innerHTML = 'There isnt a stock with that ticker symbol. Please try another symbol.';
