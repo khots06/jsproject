@@ -42,10 +42,15 @@ ul {
 }
 
 #container {
+    justify-content: center;
+}
+
+.column {
     border-style: dashed;
     border-color: goldenrod;
     border-width: 2px;
-    justify-content: center;
+    margin-bottom: 10px;
+    background-color:#eff2f4;
 }
 
 #stockList li {
@@ -212,7 +217,7 @@ MEDIA QUERIES
     .column {
         border-style: dashed;
         border-color: goldenrod;
-        border-width: 3px;
+        border-width: 2.5px;
         flex-grow: 1;
         background-color:#eff2f4;
     }

@@ -84,14 +84,21 @@ xhr.addEventListener("readystatechange", function () {
 
 			let currentPrice = parseData.financialData.currentPrice.fmt;
 			document.getElementById('currentPrice').innerHTML = 'Current Price: $' + currentPrice;
-			console.log('Current Price ' + currentPrice);
+			console.log('Current Price: ' + currentPrice);
 			
 			let open = parseData.summaryDetail.open.fmt;
 			document.getElementById('open').innerHTML = 'Market Open: $' + open;
 			console.log(open);
 
 			let previousClose = parseData.summaryDetail.previousClose.fmt;
-			console.log('Previous Close ' + previousClose);
+			console.log('Previous Close: ' + previousClose);
+
+			currentPrice = currentPrice.replace(/\,/g,'');
+			currentPrice = parseInt(currentPrice,10);
+
+			previousClose = previousClose.replace(/\,/g,'');
+			previousClose = parseInt(previousClose,10);
+
 
 			let dayChange = Math.round(((currentPrice - previousClose)/previousClose) * 100000)/1000;
 			if (dayChange > 0) {
@@ -101,6 +108,7 @@ xhr.addEventListener("readystatechange", function () {
 			}
 			document.getElementById('dayChange').innerHTML = 'Day Change: ' + dayChange + '%';
 			console.log(dayChange);
+			console.log(typeof dayChange);
 
 			let dayLow = parseData.summaryDetail.dayLow.fmt;
 			document.getElementById('dayLow').innerHTML = 'Day Low: $' + dayLow;
