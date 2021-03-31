@@ -1,31 +1,5 @@
-// const data = null;
-
-// 	const xhr = new XMLHttpRequest();
-// 	xhr.withCredentials = true;
-
-// 	xhr.addEventListener("readystatechange", function () {
-// 		if (this.readyState === this.DONE) {
-// 			console.log(this.responseText);
-// 		} else {
-// 			console.log('something wrong');
-// 		}
-// 	});
-
-
-// xhr.open("GET", "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-recommendations?symbol=APPL");
-// xhr.setRequestHeader("x-rapidapi-key", "ad2185fabemsh522f701ad4ebe0bp109193jsn8b214984504b");
-// xhr.setRequestHeader("x-rapidapi-host", "apidojo-yahoo-finance-v1.p.rapidapi.com");
-
-// xhr.send(data);
-
 let input = document.getElementById('symbol').value.toUpperCase();
 console.log(input);
-
-// function isValidSymbol(input) {
-// 	return /^[A-Z]{1,5}(?:\s*\d{6}[PC]\d{8})?$/.test(input);
-// }
-
-
 
 const data = null;
 
@@ -35,8 +9,10 @@ xhr.addEventListener("readystatechange", function () {
 	if (this.readyState === this.DONE) {
 		console.log(this.responseText);
 
+		// Check for valid stock symbol format
 		const regex = /^[A-Z]{1,5}(?:\s*\d{6}[PC]\d{8})?$/;
 		console.log(regex.test(input));
+
 
 		if (input !== "") {
 			if (regex.test(input) === false) {
@@ -75,6 +51,7 @@ xhr.addEventListener("readystatechange", function () {
 		document.getElementById('longName').innerHTML = 'Name: ' + name;
 		console.log(name);
 
+		// Ensure that the returned quote type is an equity and not an ETF or anything else
 		if (parseData.price.quoteType === 'EQUITY') {
 
 			document.getElementById('basicInfo').style.display = 'block';
@@ -93,13 +70,14 @@ xhr.addEventListener("readystatechange", function () {
 			let previousClose = parseData.summaryDetail.previousClose.fmt;
 			console.log('Previous Close: ' + previousClose);
 
+			// Regex expressions to remove commas from the 4 digit prices.  If not removed, error will occur in day dayChange.
 			currentPrice = currentPrice.replace(/\,/g,'');
 			currentPrice = parseInt(currentPrice,10);
 
 			previousClose = previousClose.replace(/\,/g,'');
 			previousClose = parseInt(previousClose,10);
 
-
+			// Calculate the day change
 			let dayChange = Math.round(((currentPrice - previousClose)/previousClose) * 100000)/1000;
 			if (dayChange > 0) {
 				document.getElementById('dayChange').style.color = 'green';
@@ -172,11 +150,6 @@ xhr.addEventListener("readystatechange", function () {
 		console.log(parseData);
 	}
 });
-	// 	document.getElementById('basicInfo').innerHTML = 'There is no stock associated with that symbol.  Please enter a different symbol.'
-	// 	document.getElementById('details').style.display = 'none';
-	// 	document.getElementById('statistics').style.display = 'none';
-	// };
-
 
 
 xhr.open("GET", "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics?symbol=" + input);
