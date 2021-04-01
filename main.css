@@ -1,119 +1,120 @@
 
-h1 {
-    margin-top: 0;
-    padding: 20px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    background-color: green;
-    text-align: center;
-    color: white;
-}
+    h1 {
+        margin-top: 0;
+        padding: 20px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        background-color: green;
+        text-align: center;
+        color: white;
+    }
 
-body {
-    padding-top: 75px; 
-    background-color: #eff2f4;
-}
+    body {
+        padding-top: 75px; 
+        background-color: #eff2f4;
+    }
 
-#basicInfo, #currentPrice, #dayChange {
-    font-weight: bold;
-}
+    #basicInfo, #currentPrice, #dayChange {
+        font-weight: bold;
+    }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-
-.lineItem:hover {
-    background-color: gold;
-}
-
-#regexError, #watchListError {
-    display: none;
-}
-
-#top-container {
-    margin-left: 5%;
-}
-
-#basicInfo, #details, #statistics, #other, #watchList {
-    text-align: center;
-}
-
-#container {
-    justify-content: center;
-}
-
-.column {
-    border-style: dashed;
-    border-color: goldenrod;
-    border-width: 2px;
-    margin-bottom: 10px;
-    background-color:#eff2f4;
-}
-
-#stockList li {
-    margin-left: 20px;
-    margin-right: 20px;
-    text-align: left;
-}
-
-li button {
-    margin-left: 60%;
-    background-color: #f44336;
-    color: white;
-    padding: 4px 8px;
-    text-align: right;
-    border-radius: 8px;
-}
-
-#submit, #addButton {
-    color: white;
-    background-color: black;
-    padding: 4px 8px;
-    border-radius: 8px;
-}
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
 
-h2, #watch {
-    margin-left: 15px;
-}
+    .lineItem:hover {
+        background-color: gold;
+    }
 
-.lineItem {
-    margin-left: 20px;
-    border-bottom: red;
-    border-radius: 1px;
-    padding-bottom: 2px;
-}
+    #regexError, #watchListError {
+        display: none;
+    }
 
-#other {
-    display: none;
-    font-weight: bold;
-    text-align: center;
-}
+    #top-container {
+        margin-left: 5%;
+    }
 
-#other {
-    padding-top: 30px;
-    margin-right: auto;
-    margin-left: auto;
-    flex-grow: 2;
-    color: goldenrod;
-    border-radius: 1px;
-    border-style: solid;
-    background-color: black;
-}
+    #basicInfo, #details, #statistics, #other, #watchList {
+        text-align: center;
+    }
 
-#heading {
-    padding-top: 15px;
-}
+    #container {
+        justify-content: center;
+    }
+
+    .column {
+        border-style: dashed;
+        border-color: goldenrod;
+        border-width: 2px;
+        margin-bottom: 10px;
+        background-color:#eff2f4;
+    }
+
+    #stockList li {
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: left;
+    }
+
+    li button {
+        margin-left: 60%;
+        background-color: #f44336;
+        color: white;
+        padding: 4px 8px;
+        text-align: right;
+        border-radius: 8px;
+    }
+
+    #submit, #addButton {
+        color: white;
+        background-color: black;
+        padding: 4px 8px;
+        border-radius: 8px;
+    }
+
+
+    h2, #watch {
+        margin-left: 15px;
+    }
+
+    .lineItem {
+        margin-left: 20px;
+        border-bottom: red;
+        border-radius: 1px;
+        padding-bottom: 2px;
+    }
+
+    #other {
+        display: none;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #other {
+        padding-top: 30px;
+        margin-right: auto;
+        margin-left: auto;
+        flex-grow: 2;
+        color: goldenrod;
+        border-radius: 1px;
+        border-style: solid;
+        background-color: black;
+    }
+
+    #heading {
+        padding-top: 15px;
+    }
+
 
 
 /******************* 
 MEDIA QUERIES
 ******************/
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     body {
         /* content: ""; */
         max-height: 100%;
@@ -183,6 +184,19 @@ MEDIA QUERIES
 }
 
 @media (min-width: 1025px) {
+/*     
+    h1 {
+        margin-top: 0;
+        padding: 20px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        background-color: green;
+        text-align: center;
+        color: white;
+    }
+     */
+    
     body {
         background-image: url(images/chart2.jpg);
         max-height: 100%;
