@@ -24,7 +24,6 @@ let countdownTimer = function () {
 
         let countdown = document.getElementById('countdown').innerHTML = 
             '<b>Time to Market close: </b>' + ('0' + marketCloseHours).slice(-2) + ':' + ('0' + marketCloseMinutes).slice(-2) + ':' + ('0' + marketCloseSeconds).slice(-2);
-            console.log(countdown);
     } else {
         document.getElementById('countdown').innerHTML = '<b>The Market is currently closed.</b>'
     };
